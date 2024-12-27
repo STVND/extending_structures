@@ -141,7 +141,7 @@ func BenchmarkStackAddAndRemove(b *testing.B) {
 	for _, size := range sizes {
 		stack := NewStack[int]()
 
-		b.Run("Queue Capacity:"+strconv.Itoa(size), func(b *testing.B) {
+		b.Run("Stack Capacity:"+strconv.Itoa(size), func(b *testing.B) {
 			for i := 0; i < size; i++ {
 				stack.Push(i)
 			}
@@ -160,7 +160,7 @@ func BenchmarkStackClear(b *testing.B) {
 	for _, size := range sizes {
 		stack := NewStack[int]()
 
-		b.Run("Queue Capacity: "+strconv.Itoa(size), func(b *testing.B) {
+		b.Run("Stack Capacity: "+strconv.Itoa(size), func(b *testing.B) {
 			for i := 0; i < size; i++ {
 				stack.Push(i)
 			}

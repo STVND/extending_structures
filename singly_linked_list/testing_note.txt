@@ -1,0 +1,130 @@
+Tested Stack, Queue, and Slices
+
+Slices were only slower when emulating the Dequeue(Pop from front) functionality of the Queues.
+Otherwise, all structures were similarly in time to execute.
+Benchmarks were done without allocs or B measured due to tester unfamiliarity with Go unit testing.
+
+[When allocs were added, time to execute for slices were tripled and showed very little allocation until the last, unrealistic benchmark]
+
+Stack
+============
+cpu: AMD Ryzen 7 5800X 8-Core Processor
+=== RUN   BenchmarkStackAddAndRemove
+BenchmarkStackAddAndRemove
+=== RUN   BenchmarkStackAddAndRemove/Stack_Capacity:1
+BenchmarkStackAddAndRemove/Stack_Capacity:1
+1000000000               0.0000008 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkStackAddAndRemove/Stack_Capacity:10
+BenchmarkStackAddAndRemove/Stack_Capacity:10
+1000000000               0.0000007 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkStackAddAndRemove/Stack_Capacity:100
+BenchmarkStackAddAndRemove/Stack_Capacity:100
+1000000000               0.0000031 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkStackAddAndRemove/Stack_Capacity:1000
+BenchmarkStackAddAndRemove/Stack_Capacity:1000
+1000000000               0.0000458 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkStackAddAndRemove/Stack_Capacity:10000
+BenchmarkStackAddAndRemove/Stack_Capacity:10000
+1000000000               0.0004100 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkStackAddAndRemove/Stack_Capacity:100000
+BenchmarkStackAddAndRemove/Stack_Capacity:100000
+1000000000               0.002213 ns/op        0 B/op          0 allocs/op
+PASS
+ok      main.go/singly_linked_list      0.127s
+
+Queue
+============
+cpu: AMD Ryzen 7 5800X 8-Core Processor
+=== RUN   BenchmarkQueueAddAndRemove
+BenchmarkQueueAddAndRemove
+=== RUN   BenchmarkQueueAddAndRemove/Queue_Capacity:_1
+BenchmarkQueueAddAndRemove/Queue_Capacity:_1
+1000000000               0.0000005 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkQueueAddAndRemove/Queue_Capacity:_10
+BenchmarkQueueAddAndRemove/Queue_Capacity:_10
+1000000000               0.0000008 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkQueueAddAndRemove/Queue_Capacity:_100
+BenchmarkQueueAddAndRemove/Queue_Capacity:_100
+1000000000               0.0000025 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkQueueAddAndRemove/Queue_Capacity:_1000
+BenchmarkQueueAddAndRemove/Queue_Capacity:_1000
+1000000000               0.0000215 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkQueueAddAndRemove/Queue_Capacity:_10000
+BenchmarkQueueAddAndRemove/Queue_Capacity:_10000
+1000000000               0.0002562 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkQueueAddAndRemove/Queue_Capacity:_100000
+BenchmarkQueueAddAndRemove/Queue_Capacity:_100000
+1000000000               0.002237 ns/op        0 B/op          0 allocs/op
+PASS
+ok      main.go/singly_linked_list      0.131s
+
+Slice
+============
+cpu: AMD Ryzen 7 5800X 8-Core Processor
+=== RUN   BenchmarkAppendAndDeque
+BenchmarkAppendAndDeque
+=== RUN   BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_1
+BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_1
+1000000000               0.0000007 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_10
+BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_10
+1000000000               0.0000013 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_100
+BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_100
+1000000000               0.0000377 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_1000
+BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_1000
+1000000000               0.0004025 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_10000
+BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_10000
+1000000000               0.03198 ns/op         0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_100000
+BenchmarkAppendAndDeque/Append_and_Remove[Deque]:_100000
+       1        3395788200 ns/op        40398440232 B/op          201843 allocs/op
+PASS
+ok      main.go/singly_linked_list      3.776s
+
+cpu: AMD Ryzen 7 5800X 8-Core Processor
+cpu: AMD Ryzen 7 5800X 8-Core Processor
+=== RUN   BenchmarkAppendAndPop
+BenchmarkAppendAndPop
+=== RUN   BenchmarkAppendAndPop/Append_and_Remove[Pop]:_1
+BenchmarkAppendAndPop/Append_and_Remove[Pop]:_1
+1000000000               0.0000001 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndPop/Append_and_Remove[Pop]:_10
+BenchmarkAppendAndPop/Append_and_Remove[Pop]:_10
+1000000000               0.0000002 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndPop/Append_and_Remove[Pop]:_100
+BenchmarkAppendAndPop/Append_and_Remove[Pop]:_100
+1000000000               0.0000003 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndPop/Append_and_Remove[Pop]:_1000
+BenchmarkAppendAndPop/Append_and_Remove[Pop]:_1000
+1000000000               0.0000011 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndPop/Append_and_Remove[Pop]:_10000
+BenchmarkAppendAndPop/Append_and_Remove[Pop]:_10000
+1000000000               0.0000096 ns/op               0 B/op          0 allocs/op
+
+=== RUN   BenchmarkAppendAndPop/Append_and_Remove[Pop]:_100000
+BenchmarkAppendAndPop/Append_and_Remove[Pop]:_100000
+1000000000               0.0001175 ns/op               0 B/op          0 allocs/op
+PASS
+ok      main.go/singly_linked_list      0.116s
