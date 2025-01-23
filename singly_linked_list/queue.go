@@ -12,8 +12,8 @@ func (q *Queue[T]) Enqueue(data T) {
 	newNode := &node[T]{value: data}
 	sll := q.sll
 
-	if q.sll.IsEmpty() {
-		q.sll.head = newNode
+	if sll.IsEmpty() {
+		sll.head = newNode
 		sll.tail = newNode
 		return
 	}
@@ -25,7 +25,7 @@ func (q *Queue[T]) Enqueue(data T) {
 func (q *Queue[T]) Dequeue() *T {
 	sll := q.sll
 
-	if q.sll.head == nil {
+	if sll.head == nil {
 		return nil
 	}
 
