@@ -1,14 +1,15 @@
 package doubly_linked_list
 
-type Queue[T any] struct {
-	dll *List[T]
+type Deque[T any] struct {
+	dll *DllList[T]
 }
 
-func NewDeque[T any]() *Queue[T] {
-	return &Queue[T]{dll: &List[T]{}}
+func NewDeque[T any]() *Deque[T] {
+	return &Deque[T]{dll: &DllList[T]{}}
 }
 
-func (q *Queue[T]) Append(data T) {
+// adds an item to the back of the Deque
+func (q *Deque[T]) Append(data T) {
 	newNode := &node[T]{value: data}
 	dll := q.dll
 
@@ -24,7 +25,8 @@ func (q *Queue[T]) Append(data T) {
 	dll.length += 1
 }
 
-func (q *Queue[T]) Prepend(data T) {
+// adds an item to the front of the Deque
+func (q *Deque[T]) Prepend(data T) {
 	newNode := &node[T]{value: data}
 	dll := q.dll
 
@@ -41,7 +43,8 @@ func (q *Queue[T]) Prepend(data T) {
 
 }
 
-func (q *Queue[T]) PopFront() *T {
+// removes/returns items from the front
+func (q *Deque[T]) PopFront() *T {
 	dll := q.dll
 
 	if dll.head == nil {
@@ -61,7 +64,8 @@ func (q *Queue[T]) PopFront() *T {
 	return &retValue
 }
 
-func (q *Queue[T]) PopBack() *T {
+// removes/returns items from the back
+func (q *Deque[T]) PopBack() *T {
 
 	dll := q.dll
 
@@ -81,14 +85,14 @@ func (q *Queue[T]) PopBack() *T {
 	return &retValue
 }
 
-func (q *Queue[T]) IsEmpty() bool {
+func (q *Deque[T]) IsEmpty() bool {
 	return q.dll.IsEmpty()
 }
 
-func (q *Queue[T]) AsSlice() []T {
+func (q *Deque[T]) AsSlice() []T {
 	return q.dll.AsSlice()
 }
 
-func (q *Queue[T]) ClearQueue() {
+func (q *Deque[T]) ClearQueue() {
 	q.dll.ClearList()
 }

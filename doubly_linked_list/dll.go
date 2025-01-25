@@ -6,21 +6,21 @@ type node[T any] struct {
 	prev  *node[T]
 }
 
-type List[T any] struct {
+type DllList[T any] struct {
 	head, tail *node[T]
 	length     int
 }
 
-func (dll *List[T]) IsEmpty() bool {
+func (dll *DllList[T]) IsEmpty() bool {
 	return dll.head == nil
 }
 
-func (dll *List[T]) ClearList() {
+func (dll *DllList[T]) ClearList() {
 	dll.head = nil
 	dll.tail = nil
 }
 
-func (dll *List[T]) AsSlice() []T {
+func (dll *DllList[T]) AsSlice() []T {
 	if dll.head == nil {
 		return nil
 	}

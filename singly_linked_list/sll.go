@@ -5,20 +5,20 @@ type node[T any] struct {
 	next  *node[T]
 }
 
-type List[T any] struct {
+type SllList[T any] struct {
 	head, tail *node[T]
 }
 
-func (sll *List[T]) IsEmpty() bool {
+func (sll *SllList[T]) IsEmpty() bool {
 	return sll.head == nil
 }
 
-func (sll *List[T]) ClearList() {
+func (sll *SllList[T]) ClearList() {
 	sll.head = nil
 	sll.tail = nil
 }
 
-func (sll *List[T]) AsSlice() []T {
+func (sll *SllList[T]) AsSlice() []T {
 	if sll.head == nil {
 		return nil
 	}

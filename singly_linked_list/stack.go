@@ -1,11 +1,11 @@
 package singly_linked_list
 
 type Stack[T any] struct {
-	sll *List[T]
+	sll *SllList[T]
 }
 
 func NewStack[T any]() *Stack[T] {
-	return &Stack[T]{sll: &List[T]{}}
+	return &Stack[T]{sll: &SllList[T]{}}
 }
 
 func (s *Stack[T]) Push(data T) {

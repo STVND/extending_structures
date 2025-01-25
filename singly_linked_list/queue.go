@@ -1,11 +1,11 @@
 package singly_linked_list
 
 type Queue[T any] struct {
-	sll *List[T]
+	sll *SllList[T]
 }
 
 func NewQueue[T any]() *Queue[T] {
-	return &Queue[T]{sll: &List[T]{}}
+	return &Queue[T]{sll: &SllList[T]{}}
 }
 
 func (q *Queue[T]) Enqueue(data T) {
